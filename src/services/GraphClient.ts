@@ -19,10 +19,9 @@ export abstract class GraphServiceBase {
   protected token: string | null = null;
 
   constructor() {
-    const tenantId = process.env.NEXT_PUBLIC_MICROSOFT_GRAPH_TENANT_ID;
-    const clientId = process.env.NEXT_PUBLIC_MICROSOFT_ENTRA_ID;
-    const clientSecret =
-      process.env.NEXT_PUBLIC_MICROSOFT_ENTRA_ID_CLIENT_SECRET;
+    const tenantId = process.env.GRAPH_TENANT_ID;
+    const clientId = process.env.GRAPH_CLIENT_ID;
+    const clientSecret = process.env.GRAPH_CLIENT_SECRET;
 
     if (!tenantId || !clientId || !clientSecret) {
       throw new Error(
