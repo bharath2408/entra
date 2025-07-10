@@ -19,9 +19,9 @@ export abstract class GraphServiceBase {
   protected token: string | null = null;
 
   constructor() {
-    const clientId = process.env.CLIENT_ID;
-    const clientSecret = process.env.CLIENT_SECRET;
-    const tenantId = process.env.TENANT_ID;
+    const tenantId = process.env.GRAPH_TENANT_ID;
+    const clientId = process.env.GRAPH_CLIENT_ID;
+    const clientSecret = process.env.GRAPH_CLIENT_SECRET;
 
     if (!tenantId || !clientId || !clientSecret) {
       throw new Error(
