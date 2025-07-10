@@ -1,0 +1,40 @@
+{
+  "name": "entrascripts",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm-run-all clean build",
+    "start": "node dist/index.js",
+    "build": "tsup src/userManager.ts src/index.ts --format esm --outDir dist",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.3",
+    "@types/nodemailer": "^6.4.17",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^3.6.1",
+    "@inquirer/core": "^10.1.13",
+    "axios": "^1.10.0",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "dotenv": "^16.5.0",
+    "inquirer": "^12.6.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.3",
+    "open": "^10.1.2",
+    "ora": "^8.2.0",
+    "table": "^6.9.0",
+    "winston": "^3.17.0"
+  }
+}
