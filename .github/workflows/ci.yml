@@ -1,11 +1,12 @@
-name: TypeScript Build
+name: Run Custom CLI in GitHub
 
 on:
   push:
     branches: [main]
+  workflow_dispatch: # allows manual trigger from UI
 
 jobs:
-  build:
+  run-cli:
     runs-on: ubuntu-latest
 
     env:
@@ -14,19 +15,21 @@ jobs:
       GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
 
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: 🟢 Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: Compile TypeScript
+      - name: 🛠️ Build TypeScript
         run: npm run build
 
-      - name: Run compiled output
+      - name: 🚀 Run CLI App
         run: node dist/index.js
+        # If your CLI accepts arguments, modify like:
+        # run: node dist/index.js --name Bharath --mode test
