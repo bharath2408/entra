@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
-      CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
-      TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+      GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+      GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+      GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
 
     steps:
       - name: Checkout code
