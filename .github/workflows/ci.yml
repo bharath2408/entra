@@ -3,20 +3,24 @@ name: TypeScript Build
 on:
   push:
     branches: [main]
-  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+      GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+      GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.11.1
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -24,5 +28,5 @@ jobs:
       - name: Compile TypeScript
         run: npm run build
 
-      - name: Run JS output
+      - name: Run compiled output
         run: node dist/index.js
